@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>.menu {
+				display: flex;
+				flex-wrap: wrap;
+			}
+			
+			.menu li {
+				list-style: none;
+				padding: 0;
+				margin: auto;
+				height: 42px;
+				text-align: center;
+				line-height: 42px;
+				flex-basis: 100%;
+				background-color: red;
+			}
+			.menu li a {
+				text-decoration: none;
+				color: white;
+				font-size: 20px;
+				font-weight: 900;
+			}
+			
+			@media (min-width:400px){
+				.menu li {
+					flex-basis: 50%;
+				}
+			}
+			@media (min-width:700px){
+				.menu li {
+					flex-basis: 25%;
+				}
+			}
+			@media (min-width:768px) {
+				.menu {
+					flex-wrap: nowrap;
+				}
+				#div1{display: flex;
+				flex-wrap: wrap;
+				width: 100%;
+				height: 100%;
+			}
+			#div1 span{
+				flex-basis: 100%;
+				justify-content: space-between;
+			}
+			@media only screen and (min-width: ) {
+			#div1 span{
+				justify-content: space-between;
+			}
+			}
+		</style>
+	</head>
+	<body>
+		<img src="img/timg(1).jpeg" width="100%" height="100%"/>
+		<ul class="menu">
+			<li>
+				<a href="#">摩托</a>
+			</li>
+			<li>
+				<a href="#">乐器</a>
+			</li>
+			<li>
+				<a href="#">运动</a>
+			</li>
+			<li>
+				<a href="#">数码</a>
+			</li>
+			<li>
+				<a href="#">游戏</a>
+			</li>
+			<li>
+				<a href="#">百货</a>
+			</li>
+			<li>
+				<a href="#">食品</a>
+			</li>
+			<li>
+				<a href="#">男装</a>
+			</li>
+			<li>
+				<a href="#">女装</a>
+			</li>
+			<li>
+				<a href="#">珠宝</a>
+			</li>
+			<li>
+				<a href="#">家电</a>
+			</li>
+			<li>
+				<a href="#">美妆</a>
+			</li>
+		</ul>
+		<div class=" div1">
+			<span><img src="img/IMG_20181113_143101.jpg" /></span>
+			<span><img src="img/IMG_20181113_143135.jpg" /></span>
+		<span><img src="img/IMG_20181113_143201.jpg" /></span>	
+			<span><img src="img/IMG_20181113_143229.jpg" /></span>
+			<span><img src="img/IMG_20181113_143304.jpg" /></span>
+			<span><img src="img/IMG_20181113_143402.jpg" /></span>
+			<span><img src="img/IMG_20181113_143336.jpg" /></span>
+			<span><img src="img/IMG_20181113_143632.jpg" /></span>
+		</div>
+	</body>
+</html>
