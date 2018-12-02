@@ -1,60 +1,115 @@
-<!doctype html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta charset="utf-8">
-<title>jQuery垂直选项卡图片滑动切换代码</title>
+	<meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<title>创业计划书</title>
+<style>
+	*{margin:0;padding:0;}
+	body#wrap{width:100%;height:500px;
+}
+ul,li{ margin:0px; padding:0px; list-style:none;}
+.div_a{ width:300px;position: relative; left: 30%;top: 30%;}
+.div_a li{ width:300px; height:50px; border-bottom:1px solid #fff; cursor:pointer; background-color:#060; text-align:center; line-height:50px; font-size:18px; color:#fff;}
 
-<link rel="stylesheet" type="text/css" href="assets/style.css">
-
+.div_a1{ width:400px; height:50px; position:relative; background-color: firebrick; top:-50px; left:250px; z-index:999; display:none;}
+.div_a2{ width:500px; height:200px; position:relative; background-color: firebrick; top:-50px; left:250px; z-index:999; display:none;}
+.div_a3{ width:700px; height:350px; position:relative; background-color: firebrick; top:-50px; left:250px; z-index:999; display:none;}
+.div_a li:hover .div_a3{ display:block;}
+.div_a li:hover .div_a1{ display:block;}
+.div_a li:hover .div_a2{ display:block;}
+</style>
 </head>
-<body><script src="/demos/googlegg.js"></script>
 
-<div class="tab">
-	<div class="box">
-		<ul class="menus">
-			<li class="bg">tab1</li>
-			<li>tab2</li>
-			<li>tab3</li>
-			<li>tab4</li>
-			<li>tab5</li>
-			<li>tab6</li>
-			<li>tab7</li>
-		</ul>
-		<div class="right">
-			<div class="scroll">
-				<div class="tab_right">
-					<img src="assets/a1.png" alt="">
-				</div>
-				<div class="tab_right">
-					<img src="assets/a2.png" alt="">
-				</div>
-				<div class="tab_right">
-					<img src="assets/a3.png" alt="">
-				</div>
-				<div class="tab_right">
-					<img src="assets/a4.png" alt="">
-				</div>
-				<div class="tab_right">
-					<img src="assets/a5.png" alt="">
-				</div>
-				<div class="tab_right">
-					<img src="assets/a6.png" alt="">
-				</div>
-				<div class="tab_right">
-					<img src="assets/a7.png" alt="">
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="clear"></div>
+<body id="wrap">
+	<script>
+
+		
+	
+		(function(){
+			var oWrap=document.getElementById('wrap');
+			var max=220;  /*存储封值*/
+			var min=180;	  /*存储谷值*/
+			var color=[max,min,min]; /*根据初始值红色来初始化数组*/
+			var timer=null;
+			var length=color.length;
+			var colorL,colorR
+			timer=setInterval(change,20);
+			/*不容许在机组运行中直接修改代码*/
+			function change(){
+				/*在定时器中每过20毫秒 执行一次代码*/
+				/*检测一次数组*/
+				for(var i=0;i<length;i++){
+					i%=length;
+				   var arrX=(i+1)%length;
+				   var arrY=(i+2)%length;
+					if(color[i]==max&&color[arrX]==min){
+						color[arrY]++;
+					}
+					if(color[i]== min&&color[arrX]==max){
+						color[arrY]--;
+					}
+				 colorL='#'+convert(color[0])+''+convert(color[1])+''+convert(color[2])+'';
+				colorR='#'+convert(color[2])+''+convert(color[0])+''+convert(color[1])+'';
+						
+					}
+					gColor(colorL,colorR);
+				}
+			
+			function convert(sRgb){ /*rgb转换成HEX*/
+				var sRgb=sRgb;
+				var sHex=sRgb.toString(16);
+				sHex=sHex.length<2?'0'+sHex:sHex 
+				/* 三目判断  判断条件 ？ 符合条件 ：不符合条件*/
+				return sHex;
+			}
+			function gColor(colorL,colorR){
+				if(navigator.userAgent.match(/Trident/i)&&navigator.userAgent.match(/MSIE [7|8|9].0/i)){
+					//通过正则检测浏览器信息是否是ie 并且 ie版本是不是 7或者8或者9 之一
+					oWrap.style.filter = "progid:DXImageTransform.Microsoft.gradient( startColorstr=" + colorL + ", endColorstr=" + colorR + ",GradientType=0 )";
+				}else{
+					oWrap.style.background='-webkit-linear-gradient(left,'+colorL+','+colorR+')' //谷歌
+					oWrap.style.background='-ms-linear-gradient(left,'+colorL+','+colorR+')'  //ie 10 11
+				}
+			 
+			
+			}
+		})();
+			
+	</script>
+<div class="div_a"  >
+<ul>
+<li>项目名称
+<div class="div_a1">正宗青树坪米粉</div>
+</li>
+<li>项目发起人
+<div class="div_a1">琴湖扛把子——陈强</div>
+</li>
+<li>项目概况
+<div class="div_a1">打造最正宗的青树坪米粉，做湘大最好吃的米粉。
+<img src="img/48540923dd54564e98d75cabbfde9c82d0584ff5.jpg" height="400px" width="400px"/>
 </div>
-
-<script src="js/jquery-1.8.3.min.js"></script>
-<script type="text/javascript" src="assets/index.js"></script>
-
-<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
-<p>适用浏览器：360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. 不支持IE8及以下浏览器。</p>
-<p>来源：<a href="http://www.lanrenzhijia.com/" target="_blank">懒人</a></p>
+</li>
+<li>市场背景
+<div class="div_a2">目前为止，湘大还没有任何一家青树坪米粉店。作为南方人，米粉是我们的日常的主食，所以米粉的市场空间巨大。
+					而对于从小吃惯了青树坪米粉的我到湘大后，却找不到一碗美味的米粉，所以美味的青树坪米粉前景无限。</div>
+</li>
+<li>营销计划
+<div class="div_a2 ">青树坪米粉物美价廉，以每碗8块的价格出售，除去成本一碗净赚4块，以每天卖300碗为基本，一天一千二，一个月三万六，一年除去假期至少三十万。
+ </div>
+</li>
+<li>核心竞争力
+<div class="div_a3">一般的米粉用的是湿粉，但青树坪米粉用的是纯粮制造的干粉，吃起来有韧劲。这也是青树坪米粉能够征服口味挑剔的青树坪人民的重要原因。
+此粉纯粮制造，经青树坪厨师加工后，吃起来回味无穷。其最大的一个特点就是辣，辣得有味道，辣得你越吃越想吃，如果你品尝过第一碗后，保证以后就天天想着吃第二碗，第三碗.....
+因此，有好事者传闻，青树坪米粉内加有罂粟，其实哪有啊，如果真的是这样的话，那这些开米粉店的不都是犯法吗？能传出这中重量级的谣言，可见青树坪米粉的美味，绝对不是一般词汇能够描述的.
+</div>
+</li>
+</ul>
 </div>
 </body>
 </html>
