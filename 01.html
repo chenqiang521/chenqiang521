@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>本店特色</title>
+  <style>
+	*{margin:0;padding:0;}
+	body#wrap{width:100%;height:900px;
+}
+.box{width: 960px; height: 1200px;font-family: "微软雅黑"; text-align: center;}
+.box1{width: 300px;height: 300px;float: left;}
+.box2{width: 660px;height: 300px;float: left;margin-top: 50px;}
+.box3{width: 660px;height: 300px;float: left;margin-top: 50px;}
+  </style>
+ </head>
+ <body id="wrap">
+	
+	<script>
+
+		
+	
+		(function(){
+			var oWrap=document.getElementById('wrap');
+			var max=220;  /*存储封值*/
+			var min=180;	  /*存储谷值*/
+			var color=[max,min,min]; /*根据初始值红色来初始化数组*/
+			var timer=null;
+			var length=color.length;
+			var colorL,colorR
+			timer=setInterval(change,20);
+			/*不容许在机组运行中直接修改代码*/
+			function change(){
+				/*在定时器中每过20毫秒 执行一次代码*/
+				/*检测一次数组*/
+				for(var i=0;i<length;i++){
+					i%=length;
+				   var arrX=(i+1)%length;
+				   var arrY=(i+2)%length;
+					if(color[i]==max&&color[arrX]==min){
+						color[arrY]++;
+					}
+					if(color[i]== min&&color[arrX]==max){
+						color[arrY]--;
+					}
+				 colorL='#'+convert(color[0])+''+convert(color[1])+''+convert(color[2])+'';
+				colorR='#'+convert(color[2])+''+convert(color[0])+''+convert(color[1])+'';
+						
+					}
+					gColor(colorL,colorR);
+				}
+			
+			function convert(sRgb){ /*rgb转换成HEX*/
+				var sRgb=sRgb;
+				var sHex=sRgb.toString(16);
+				sHex=sHex.length<2?'0'+sHex:sHex 
+				/* 三目判断  判断条件 ？ 符合条件 ：不符合条件*/
+				return sHex;
+			}
+			function gColor(colorL,colorR){
+				if(navigator.userAgent.match(/Trident/i)&&navigator.userAgent.match(/MSIE [7|8|9].0/i)){
+					//通过正则检测浏览器信息是否是ie 并且 ie版本是不是 7或者8或者9 之一
+					oWrap.style.filter = "progid:DXImageTransform.Microsoft.gradient( startColorstr=" + colorL + ", endColorstr=" + colorR + ",GradientType=0 )";
+				}else{
+					oWrap.style.background='-webkit-linear-gradient(left,'+colorL+','+colorR+')' //谷歌
+					oWrap.style.background='-ms-linear-gradient(left,'+colorL+','+colorR+')'  //ie 10 11
+				}
+			 
+			
+			}
+		})();
+			
+	</script>
+	<div class="box">
+		<h1>本店出品，必属精品</h1>
+		<div class="box1">
+			<h2>1.青树坪米粉</h2>
+			<img src="img/timg-6.jpeg" width="300px" height="200px" />
+			<h3>良心价：7元</h3>
+			<button type="button" style="width: 100px;height: 50px;">点击购买</button>
+		</div>
+		<div class="box2">
+			青树坪米粉也颇为独特。米粉作为经典米制品之一，大多具有柔、绵、粘、糯等特点，口感较软;而青树坪米粉相比于普通米粉，口感韧劲更足，粉条本身更具有弹性。它粉条纤细而质地紧密、
+			韧性十足，吃起来分外爽口。轻轻一吸，顺滑的米粉便涌入你的口腔，牙齿微微一抿米粉便齐齐断开，Q弹的米粉在口腔内翻滚、拉扯，颇有异趣。
+
+质地优异的米粉需要优异“配角”的衬托才能更加出彩，但一碗合格的青树坪米粉除了本地的米粉条外，浓郁鲜香的汤头、辣而不燥的辣椒油、酥香紧致的肉片。才构成一碗色香味俱全的青树坪米粉。
+
+		</div>
+		<div class="box1">
+			<h2>2.特色炒米粉</h2>
+			<img src="img/u_4210245568_3528580845&fm_15&gp_0.jpg" width="300px" height="200px" />
+			<h3>良心价：6块</h3>
+			<button type="button" style="width:100px ; height: 50px;">点击购买</button>
+		</div>
+		<div class=" box3">经典的炒粉是加个鸡蛋，再放些时令配菜，这个配菜大多是豆芽（一年四季），空心菜（夏季），生菜（春，秋，冬季）。
+　　无论是早餐或者宵夜这炒粉都是非常大众的选择，最主要是美味，价格实惠。加上由青树坪特制的米粉后，炒出来的米粉更加筋道，入味。
+</div>
+<div class="box1">
+	<h2>3.永丰辣酱</h2>
+	<img src="img/timg-12.jpeg" width="300px" height="200px"/>
+	<h3>良心价：10块一瓶</h3>
+	<button type="button" style="width: 100px;height: 50px;">点击购买</button>
+</div>
+<div class="box3">
+	永丰辣酱，湖南省双峰县特产，中国国家地理标志产品。
+
+永丰辣酱既是一种调味品，又是一种风味小吃，具有独特的风味和丰富的营养成份。永丰辣酱作为低脂肪、低糖份、无化学色素、无公害的纯天然制品，不仅口感好、食用方便，可作各种食物的调色调味佐料，
+而且开胃健脾，增进食欲，却寒被祛湿，防治感冒。其中的蒜仁、地蚕、蕨根等配料，还具有杀菌抗病等药用保健作用。因而，永丰辣酱越来越受到广大消费者的喜爱。
+
+</div>
+<h1>更多精品，欢迎来店品尝！</h1>
+	</div>
+ </body>
+</html>
